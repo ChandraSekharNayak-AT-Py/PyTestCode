@@ -6,9 +6,21 @@
 #Method name should have sence
 #-k :- name extension for string pattern
 # py.test -k secondprogram -v -s
+#-m :- marker :-  py.test -m smoke -v -s
 
-def test_firstprogram():
-    print('Hi')
 
-def test_secondprogram():
-    print('Good Morning')
+import pytest
+
+
+
+def test_secondprogram_1():
+    a = 10
+    b = 20
+    c = a+b
+    return c
+
+@pytest.mark.xfail
+def test_secondprogram_2():
+    d = 60
+    assert test_secondprogram_1.c > d
+
